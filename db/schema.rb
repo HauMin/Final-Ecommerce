@@ -23,10 +23,10 @@ ActiveRecord::Schema.define(version: 2019_06_12_032431) do
     t.string "content"
     t.bigint "users_id"
     t.bigint "products_id"
-    t.bigint "person_post_new_id"
+    t.bigint "person_post_news_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["person_post_new_id"], name: "index_comments_on_person_post_new_id"
+    t.index ["person_post_news_id"], name: "index_comments_on_person_post_news_id"
     t.index ["products_id"], name: "index_comments_on_products_id"
     t.index ["users_id"], name: "index_comments_on_users_id"
   end
@@ -59,10 +59,10 @@ ActiveRecord::Schema.define(version: 2019_06_12_032431) do
     t.float "price"
     t.bigint "orders_id"
     t.bigint "products_id"
-    t.bigint "history_id"
+    t.bigint "histories_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["history_id"], name: "index_order_details_on_history_id"
+    t.index ["histories_id"], name: "index_order_details_on_histories_id"
     t.index ["orders_id"], name: "index_order_details_on_orders_id"
     t.index ["products_id"], name: "index_order_details_on_products_id"
   end
@@ -98,20 +98,20 @@ ActiveRecord::Schema.define(version: 2019_06_12_032431) do
     t.float "price_out"
     t.float "price_sale"
     t.integer "status", default: 0, null: false
-    t.bigint "small_category_id"
+    t.bigint "small_categories_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["small_category_id"], name: "index_products_on_small_category_id"
+    t.index ["small_categories_id"], name: "index_products_on_small_categories_id"
   end
 
   create_table "ranks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "star_level"
     t.bigint "users_id"
     t.bigint "products_id"
-    t.bigint "person_post_new_id"
+    t.bigint "person_post_news_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["person_post_new_id"], name: "index_ranks_on_person_post_new_id"
+    t.index ["person_post_news_id"], name: "index_ranks_on_person_post_news_id"
     t.index ["products_id"], name: "index_ranks_on_products_id"
     t.index ["users_id"], name: "index_ranks_on_users_id"
   end
@@ -126,49 +126,39 @@ ActiveRecord::Schema.define(version: 2019_06_12_032431) do
   create_table "small_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "small_category_name"
     t.text "description"
-    t.bigint "category_id"
+    t.bigint "categories_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_small_categories_on_category_id"
-  end
-
-  create_table "type_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["categories_id"], name: "index_small_categories_on_categories_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.string "username"
-    t.string "password"
     t.string "phone"
     t.string "email"
     t.string "address"
-    t.integer "gender"
-    t.bigint "type_user_id"
+    t.string "password_digest"
+    t.string "remember_digest"
     t.integer "role", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["type_user_id"], name: "index_users_on_type_user_id"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  add_foreign_key "comments", "person_post_news", column: "person_post_new_id"
+  add_foreign_key "comments", "person_post_news"
   add_foreign_key "comments", "products", column: "products_id"
   add_foreign_key "comments", "users", column: "users_id"
   add_foreign_key "contacts", "users", column: "users_id"
   add_foreign_key "histories", "users", column: "users_id"
   add_foreign_key "image_products", "products", column: "products_id"
-  add_foreign_key "order_details", "histories"
+  add_foreign_key "order_details", "histories", column: "histories_id"
   add_foreign_key "order_details", "orders", column: "orders_id"
   add_foreign_key "order_details", "products", column: "products_id"
   add_foreign_key "orders", "users", column: "users_id"
   add_foreign_key "person_post_news", "users", column: "users_id"
-  add_foreign_key "products", "small_categories"
-  add_foreign_key "ranks", "person_post_news", column: "person_post_new_id"
+  add_foreign_key "products", "small_categories", column: "small_categories_id"
+  add_foreign_key "ranks", "person_post_news"
   add_foreign_key "ranks", "products", column: "products_id"
   add_foreign_key "ranks", "users", column: "users_id"
-  add_foreign_key "small_categories", "categories"
-  add_foreign_key "users", "type_users"
+  add_foreign_key "small_categories", "categories", column: "categories_id"
 end
