@@ -161,5 +161,4 @@ ActiveRecord::Schema.define(version: 2019_06_12_032431) do
   add_foreign_key "ranks", "products"
   add_foreign_key "ranks", "users"
   add_foreign_key "small_categories", "categories"
-
 end
