@@ -146,8 +146,13 @@ ActiveRecord::Schema.define(version: 2019_06_12_032431) do
   end
 
   add_foreign_key "comments", "person_post_news", column: "person_post_new_id"
+<<<<<<< 3d77540eb91d8c3334f1f91f37c7c0610be99d51
   add_foreign_key "comments", "products"
   add_foreign_key "comments", "users"
+=======
+  add_foreign_key "comments", "products", column: "products_id"
+  add_foreign_key "comments", "users", column: "users_id"
+>>>>>>> Admin Category Small_Category
   add_foreign_key "contacts", "users"
   add_foreign_key "histories", "users"
   add_foreign_key "image_products", "products"

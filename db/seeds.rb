@@ -23,6 +23,7 @@
 # categories = Category.create(name: "BOTTOMS",description: "bottoms")
 # categories = Category.create(name: "ACCESSORIES",description: "accessories")
 
+
 categories = Category.create(name: "Ao", description: "ao mat")
 categories = Category.create(name: "quan", description: "quan mat")
 
