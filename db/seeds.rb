@@ -36,7 +36,3 @@ products = Product.create(name: "sony", description_sort: "a", description_long:
 	color: "c", size: "3x4", price_in: 15, price_out: 20, price_sale: 3, status: 0, small_category_id: 1)
 products = Product.create(name: "apple", description_sort: "g", description_long: "h", image: "links",
 	color: "j", size: "3x4", price_in: 20, price_out: 25, price_sale: 0, status: 1, small_category_id: 2)
-
-
-small_categories = SmallCategory.create(small_category_name: "quan lot", description: "de mat", category_id: 2)
-

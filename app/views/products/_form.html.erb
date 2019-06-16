@@ -21,10 +21,17 @@
         <%= f.file_field :image, class: "form-control" %>
       </div>
       <% if @product.image? %>
+<<<<<<< 235df495c4944959b2bb900cdd5c15c2a6892ea0
       <%= image_tag @product.image.thumb.url %>
       <div>
         <%= label_tag :remove_image do %>
           <%= t ".romove_image" %>
+=======
+      <%= image_tag product.image.thumb.url %>
+      <div>
+        <%= label_tag :remove_image do %>
+          Remove image
+>>>>>>> Admin Products
           <%= f.check_box :remove_image %>
         <% end %>
       </div>
