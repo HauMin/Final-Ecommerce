@@ -22,4 +22,5 @@ Rails.application.routes.draw do
   resources :categories
   resources :small_categories
   resources :products
+  resources :image_products
 end
