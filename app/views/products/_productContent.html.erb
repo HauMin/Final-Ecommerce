@@ -1,0 +1,100 @@
+<div id="pageContent" class="starthide">
+  <section class="content offset-top-0">
+    <div class="container">
+      <div class="row product-info-outer">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-8">
+          <div class="row">
+            <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 hidden-xs">
+              <div class="product-main-image">
+                <div class="product-main-image__item">
+                  <%= image_tag(@product.image) %>
+                </div>
+                <div class="product-main-image__zoom"></div>
+              </div>
+            </div>
+            <div class="product-info col-sm-6 col-md-6 col-lg-6 col-xl-6">
+              <div class="product-info__title">
+                <h2><%= @product.name %></h2>
+              </div>
+              <div class="price-box product-info__price">
+                <span class="price-box__new"><span class=money><%= @product.price_in %></span></span>
+                <span class="price-box__old"><span class=money><%= @product.price_out %></span></span>
+              </div>
+              <!-- countdown_box -->
+              <div class="divider divider--xs product-info__divider"></div>
+              <form id="add-item-form" action="/cart/add" method="post">
+                <div class="divider divider--sm"></div>
+                <div class="wrapper">
+                  <div class="pull-left"><span class="qty-label">STATUS:</span> </div>
+                  <div class="pull-left">
+                    <input type="text" name="quantity" class="input--ys qty-input pull-left"
+                    value=<%= @product.status %>> </div>
+                  <div class="pull-left">
+                    <button type="submit" class="btn btn--ys btn--xxl addtocart"><span class="icon icon-shopping_basket"></span> Add to Cart</button>
+                  </div>
+                </div>
+                <script>
+                  jQuery('.addtocart').click(function(e) {
+                    e.preventDefault();
+                    Shopify.addItemFromFormStart('add-item-form',
+                      9097940428);
+                  });
+                </script>
+              </form>
+              <ul class="product-link"> </ul>
+              <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+                <a class="addthis_button_preferred_1"></a>
+                <a class="addthis_button_preferred_2"></a>
+                <a class="addthis_button_preferred_3"></a>
+                <a class="addthis_button_preferred_4"></a>
+                <a class="addthis_button_compact"></a>
+                <a class="addthis_counter addthis_bubble_style"></a>
+              </div>
+              <script type='text/javascript' src='//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-525fbbd6215b4f1a'></script>
+            </div>
+          </div>
+          <div class="row content">
+            <ul class="nav nav-tabs nav-tabs--ys1" role="tablist">
+              <li class="active">
+                <a href="#Tab1" role="tab" data-toggle="tab" class="text-uppercase">Description</a>
+              </li>
+              <li>
+                <a href="#Tab2" role="tab" data-toggle="tab" class="text-uppercase">TAGS</a>
+              </li>
+            </ul>
+            <div class="tab-content tab-content--ys">
+              <div role="tabpanel" class="tab-pane active" id="Tab1">
+                <p><%= @product.description_long %></p>
+                <div class="divider divider--md"></div>
+                <table class="table table-params">
+                  <tbody>
+                    <tr>
+                      <td class="text-right"><span class="color">COLOR</span> </td>
+                      <td><%= @product.color %></td>
+                    </tr>
+                    <tr>
+                      <td class="text-right"><span class="color">SIZE</span> </td>
+                      <td><%= @product.size %></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div role="tabpanel" class="tab-pane " id="Tab2">
+                <ul class="tags-list">
+                  <% @small_category.each do |small_categories| %>
+                  <li>
+                    <a href="/collections/all/vintage"><%= @small_categories %></a>
+                  </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <%= javascript_include_tag "product" %>
+  <!-- related products -->
+  <!-- /related products -->
+</div>

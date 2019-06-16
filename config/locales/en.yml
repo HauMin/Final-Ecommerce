@@ -5,6 +5,9 @@ en:
   account: "Content Page Account"
   product: "Content Page Product"
   welcome: Welcome to FAshop
+  products:
+    show:
+      title: "FAshop - Product"
   view_admin:
     home:
       title: "Home Admin"
