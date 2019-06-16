@@ -25,12 +25,13 @@
               <form id="add-item-form" action="/cart/add" method="post">
                 <div class="divider divider--sm"></div>
                 <div class="wrapper">
-                  <div class="pull-left"><span class="qty-label">STATUS:</span> </div>
+                  <div class="pull-left"><span class="qty-label"><%= t("product.str1") %></span> </div>
                   <div class="pull-left">
                     <input type="text" name="quantity" class="input--ys qty-input pull-left"
                     value=<%= @product.status %>> </div>
                   <div class="pull-left">
-                    <button type="submit" class="btn btn--ys btn--xxl addtocart"><span class="icon icon-shopping_basket"></span> Add to Cart</button>
+                    <button type="submit" class="btn btn--ys btn--xxl addtocart"><span class="icon icon-shopping_basket"></span>
+                      <%= t("product.str2") %></button>
                   </div>
                 </div>
                 <script>
@@ -41,25 +42,16 @@
                   });
                 </script>
               </form>
-              <ul class="product-link"> </ul>
-              <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
-                <a class="addthis_button_preferred_1"></a>
-                <a class="addthis_button_preferred_2"></a>
-                <a class="addthis_button_preferred_3"></a>
-                <a class="addthis_button_preferred_4"></a>
-                <a class="addthis_button_compact"></a>
-                <a class="addthis_counter addthis_bubble_style"></a>
-              </div>
-              <script type='text/javascript' src='//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-525fbbd6215b4f1a'></script>
+              <div class="fb-like" data-href="https://www.facebook.com/FAshopdanang/" data-width="" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
             </div>
           </div>
           <div class="row content">
             <ul class="nav nav-tabs nav-tabs--ys1" role="tablist">
               <li class="active">
-                <a href="#Tab1" role="tab" data-toggle="tab" class="text-uppercase">Description</a>
+                <a href="#Tab1" role="tab" data-toggle="tab" class="text-uppercase"><%= t("product.str3") %></a>
               </li>
               <li>
-                <a href="#Tab2" role="tab" data-toggle="tab" class="text-uppercase">TAGS</a>
+                <a href="#Tab2" role="tab" data-toggle="tab" class="text-uppercase"><%= t("product.str4") %></a>
               </li>
             </ul>
             <div class="tab-content tab-content--ys">
@@ -69,11 +61,11 @@
                 <table class="table table-params">
                   <tbody>
                     <tr>
-                      <td class="text-right"><span class="color">COLOR</span> </td>
+                      <td class="text-right"><span class="color"><%= t("product.str5") %></span> </td>
                       <td><%= @product.color %></td>
                     </tr>
                     <tr>
-                      <td class="text-right"><span class="color">SIZE</span> </td>
+                      <td class="text-right"><span class="color"><%= t("product.str6") %></span> </td>
                       <td><%= @product.size %></td>
                     </tr>
                   </tbody>

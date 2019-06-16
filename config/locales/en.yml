@@ -217,3 +217,10 @@ en:
     nil_user: "User not found"
     msg1: "Invalid email/password combination"
     msg2: "can't be empty"
+  product:
+    str1: "STATUS:"
+    str2: "Add to Cart"
+    str3: "Description"
+    str4: "TAGS"
+    str5: "COLOR"
+    str6: "SIZE"
