@@ -1,0 +1,103 @@
+<%= form_for @product do |f| %>
+  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+  <div class="box-body">
+  	<div class="fields-group">
+    	<div class="form-group  ">
+    		<%= f.label :name, t(".nameproduct") %>
+    		<%= f.text_field :name, class: "form-control" %>
+    	</div>
+    	<div class="form-group  ">
+    		<%= f.label :description_sort, t(".description_sort") %>
+		    <%= f.text_field :description_sort, class: "form-control" %>
+		  </div>
+
+      <div class="form-group  ">
+        <%= f.label :description_long, t(".description_long") %>
+        <%= f.text_field :description_long, class: "form-control" %>
+      </div>
+
+      <div class="form-group  ">
+        <%= f.label :image, t(".image") %>
+        <%= f.file_field :image, class: "form-control" %>
+      </div>
+      <% if @product.image? %>
+      <%= image_tag @product.image.thumb.url %>
+      <div>
+        <%= label_tag :remove_image do %>
+          <%= t ".romove_image" %>
+          <%= f.check_box :remove_image %>
+        <% end %>
+      </div>
+      <% end %>
+
+
+
+
+      <div class="form-group  ">
+        <%= f.label :color, t(".color") %>
+        <%= f.text_field :color, class: "form-control" %>
+      </div>
+
+      <div class="form-group  ">
+        <%= f.label :size, t(".size") %>
+        <%= f.text_field :size, class: "form-control" %>
+      </div>
+
+      <div class="form-group  ">
+        <%= f.label :price_in, t(".price_in") %>
+        <%= f.text_field :price_in, class: "form-control" %>
+      </div>
+
+      <div class="form-group  ">
+        <%= f.label :price_out, t(".price_out") %>
+        <%= f.text_field :price_out, class: "form-control" %>
+      </div>
+
+      <div class="form-group  ">
+        <%= f.label :price_sale, t(".price_sale") %>
+        <%= f.text_field :price_sale, class: "form-control" %>
+      </div>
+
+      <div class="form-group  ">
+        <%= f.label :status, t(".status") %>
+        <%= f.select :status, options_for_select(Product.statuses.map { |key, value| [key.humanize, key] }) %>
+      </div>
+
+      <div class="form-group  ">
+        <%= f.label :small_category_id, t(".namesmallcategory") %>
+        <select id="category" onchange="categoryChanged(this)">
+          <% if @product.small_category_id? %>
+            <option value=  <%= @product.small_category_id %> ><%= @product.small_category.small_category_name %></option>
+              <% @small_categories.each do |small_category| %>
+            <% if small_category.id != @product.small_category_id %>
+            <option value=<%= small_category.id %> ><%= small_category.small_category_name %></option>
+            <%end%>
+          <%end%>          
+
+          <% else %>
+            <option value="" >--Small Category--</option>
+          <% @small_categories.each do |small_category| %>
+          <option value=<%= small_category.id %> ><%= small_category.small_category_name %></option>
+          <%end%>
+          <%end%>
+        </select>
+         <%= f.hidden_field :small_category_id, id: :small_category_category_id %>
+      </div>
+    </div>
+  </div>
+  <!-- /.box-body -->
+  <div class="box-footer">
+    <input type="hidden" name="_token" value="YkDCfkRWPRyZTW2zQVo3IfKy3x6paUJmuFe7BBwx">
+    <div class="col-md-2"> </div>
+    <div class="col-md-8">
+      <div class="btn-group pull-right">
+        <%= f.submit t(".submit"), class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+  <input type="hidden" name="_previous_" value="" class="_previous_" />
+  <!-- /.box-footer -->
+<% end %>
+ 
+
+<%= javascript_include_tag "small_category" %>
