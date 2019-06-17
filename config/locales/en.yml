@@ -5,7 +5,6 @@ en:
   account: "Content Page Account"
   product: "Content Page Product"
   welcome: Welcome to FAshop
-<<<<<<< ffd33c5a219f7956c89a367969c64643d31cd595
   category_not_found: "Category Not Found"
   category_deleted: "Category Deleted"
   cant_be_empty: "Can not be empty!"
@@ -16,8 +15,6 @@ en:
   product_category_deleted: "Product Deleted"
   image_product_not_found: "Image Product Not Found"
   image_product_deleted: "Image Deleted"
-=======
->>>>>>> Admin User
   user_not_found: "User Not Found"
   user_deleted: "User Deleted"
   view_admin:
