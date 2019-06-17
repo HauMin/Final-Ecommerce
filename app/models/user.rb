@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :comments
   has_one :history
   has_many :orders
+  has_many :products, through: :ranks
   enum role: { admin: 0, member: 1 }
 
   has_secure_password
@@ -30,5 +31,9 @@ class User < ApplicationRecord
              BCrypt::Engine.cost
            end
     BCrypt::Password.create(string, cost: cost)
+  end
+
+  def rated? product
+    products.include? product
   end
 end

@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'products/show'
-  get "sessions/new"
-  get "users/new"
   root "view_web#home"
 
   get "/admin", to: "view_admin#home"
@@ -19,4 +16,5 @@ Rails.application.routes.draw do
   delete "view_web/account/logout",  to: "sessions#destroy"
   resources :users
   resources :products
+  resources :ranks, only: :create
 end

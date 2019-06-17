@@ -18,4 +18,12 @@ module SessionsHelper
     session.delete:user_id
     @current_user = nil
   end
+
+  def current_rating
+    if current_user.rated? @product
+      current_user.ranks.find_by product_id: @product.id
+    else
+      current_user.ranks.build
+    end
+  end
 end

@@ -4,7 +4,8 @@ en:
   cart: "Content Page Cart"
   account: "Content Page Account"
   product: "Content Page Product"
-  welcome: Welcome to FAshop
+  welcome: "Welcome to FAshop"
+  product_not_found: "Product not found"
   products:
     show:
       title: "FAshop - Product"
