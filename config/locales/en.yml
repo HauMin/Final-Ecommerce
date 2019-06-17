@@ -15,6 +15,8 @@ en:
   product_category_deleted: "Product Deleted"
   image_product_not_found: "Image Product Not Found"
   image_product_deleted: "Image Deleted"
+  user_not_found: "User Not Found"
+  user_deleted: "User Deleted"
   view_admin:
     home:
       title: "Home Admin"
@@ -37,11 +39,52 @@ en:
       title: "FAshop - Login"
     register:
       title: "FAshop - Register"
+    elements:
+      account:
+        accountContent:
+          account: "Account"
+          myaccount: "My Account"
+          orderhistory: "Order History"
+          str1: "You haven"
+          str2: "t placed any orders yet."
+          accountdetail: "Account Details"
+          name: "Name:"
+          email: "E-mail:"
+          address: "Address:"
   lable:
     contacts: "Contacts"
   users:
     new:
       title: "FAshop - Register"
+    show:
+      title: "FAshop - Profile"
+    index:
+      title: "Home Admin"
+      str1: "Users manager"
+      id: "ID"
+      name: "User Name"
+      phone: "Phone"
+      email: "Email"
+      address: "Address"
+      admin: "Admin"
+      action: "Action"
+      new: "New"
+    edit:
+      title: "Home Admin"
+      str1: "Edit User"
+      str2: "Edit User"
+      id: "ID"
+      namecategory: "Name Category"
+      description: "Description"
+      list: "List"
+    formadmin:
+      submit: "Submit"
+      name: "User Name"
+      phone: "Phone"
+      email: "Email"
+      address: "Address"
+      admin: "Admin"
+      description: "Description"
   sessions:
     new:
       title: "FAshop - Login"
@@ -188,6 +231,8 @@ en:
     str14: "Email Address"
     str15: "Submit"
     str16: "Cancel"
+    str17: "RETURNING ADMIN"
+    str18: "WELLCOME TO ADMIN PAGE"
   registerContent:
     str1: "CREATE AN ACCOUNT"
     str2: "PERSONAL INFORMATION"

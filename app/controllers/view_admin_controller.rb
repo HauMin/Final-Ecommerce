@@ -3,4 +3,6 @@ class ViewAdminController < ApplicationController
   end
   def index
   end
+  def login
+  end
 end
