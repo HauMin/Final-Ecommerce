@@ -79,6 +79,9 @@ en:
       description: "Description"
       list: "List"
       title: "FAshop - Update"
+      namecategory: "Name Category"
+      description: "Description"
+      list: "List"
     formadmin:
       submit: "Submit"
       name: "User Name"
