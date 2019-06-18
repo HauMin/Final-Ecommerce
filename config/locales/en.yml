@@ -6,6 +6,12 @@ en:
   product: "Content Page Product"
   welcome: "Welcome to FAshop"
   product_not_found: "Product not found"
+  destroy_cart: "Product deleted"
+  sure: "You sure?"
+  label:
+    logout: "Log out"
+    profile: "Profile"
+    settings: "Settings"
   products:
     show:
       title: "FAshop - Product"
@@ -39,6 +45,9 @@ en:
   sessions:
     new:
       title: "FAshop - Login"
+  carts:
+    index:
+      title: "FAshop - Cart"
   footer:
     str1: "16 St. Ly Thuong Kiet, Da Nang"
     str2: "0787073046"
@@ -225,3 +234,5 @@ en:
     str4: "TAGS"
     str5: "COLOR"
     str6: "SIZE"
+  chat:
+    str1: "Your feedback"

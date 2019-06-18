@@ -29,7 +29,7 @@
               </div>
               <!-- countdown_box -->
               <div class="divider divider--xs product-info__divider"></div>
-              <form id="add-item-form" action="/cart/add" method="post">
+              <form id="add-item-form" action="<%= carts_path(quanitily: 1, product_id: @product.id, user_id: current_user.id ) %>" data-method="post">
                 <div class="divider divider--sm"></div>
                 <div class="wrapper">
                   <div class="pull-left"><span class="qty-label"><%= t("product.str1") %></span> </div>
@@ -37,8 +37,9 @@
                     <input type="text" name="quantity" class="input--ys qty-input pull-left"
                     value=<%= @product.status %>> </div>
                   <div class="pull-left">
-                    <button type="submit" class="btn btn--ys btn--xxl addtocart"><span class="icon icon-shopping_basket"></span>
-                      <%= t("product.str2") %></button>
+                    <a href="<%= carts_path(quanitily: 1, product_id: @product.id, user_id: current_user.id ) %>" class="btn btn--ys btn--xl addtocart-js" data-method="post">
+                      <%= t("product.str2") %>
+                    </a>
                   </div>
                 </div>
                 <script>
@@ -49,6 +50,7 @@
                   });
                 </script>
               </form>
+
               <div class="fb-like" data-href="https://www.facebook.com/FAshopdanang/" data-width="" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
               <div class="divider divider--xs product-info__divider"></div>
               <div id="ratingform">
@@ -88,11 +90,13 @@
               </div>
               <div role="tabpanel" class="tab-pane " id="Tab2">
                 <ul class="tags-list">
-                  <% @small_category.each do |small_categories| %>
+
                   <li>
-                    <a href="/collections/all/vintage"><%= @small_categories %></a>
+                    <a href="/collections/all/vintage">
+                      <%= @small_category.small_category_name %>
+                    </a>
                   </li>
-                  <% end %>
+
                 </ul>
               </div>
             </div>

@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_action  :set_category
   def new; end
 
   def create
@@ -16,4 +17,8 @@ class SessionsController < ApplicationController
     log_out
     redirect_to root_path
   end
+  private
+    def set_category
+      @categories = Category.all.limit(3)
+    end
 end

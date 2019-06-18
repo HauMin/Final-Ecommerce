@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'orders/show'
+  get 'orders/create'
   root "view_web#home"
 
   get "/admin", to: "view_admin#home"
@@ -19,5 +21,6 @@ Rails.application.routes.draw do
   resources :products
   resources :recentlies, only: :create
   resources :ranks, only: :create
-
+  resources :carts
+  resources :orders
 end

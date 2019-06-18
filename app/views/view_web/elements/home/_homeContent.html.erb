@@ -63,14 +63,15 @@
       <div class="container collectionsall">
         <div class="row">
           <div class="clearfix"></div>
+          <% @categories.each do |category| %>
           <div class="col-sm-6 col-md-6 col-lg-4">
-            <a href="/collections/women-s" class="banner zoom-in">
+            <a href="/categories/<%= category.id %>" class="banner zoom-in">
               <span class="figure buttononhover">
               <img src="//cdn.shopify.com/s/files/1/1637/5229/files/img10-fashop_1024x1024.jpg?v=1480804611" alt="">
                 <span class="figcaption">
                   <span class="block-table">
                     <span class="block-table-cell">
-                      <span class="banner__title size40"><%= t("homeContent.str11") %></span>
+                      <span class="banner__title size40"><%= category.name %></span>
                       <span class="btn btn--ys btn--xl"><%= t("homeContent.str4") %></span>
                     </span>
                   </span>
@@ -78,91 +79,12 @@
               </span>
             </a>
           </div>
-          <div class="col-sm-6 col-md-6 col-lg-4">
-            <a href="/collections/women-s" class="banner zoom-in">
-              <span class="figure buttononhover">
-                <img src="//cdn.shopify.com/s/files/1/1637/5229/files/img02_1024x1024.jpg?v=1481309764" alt="">
-                <span class="figcaption">
-                  <span class="block-table">
-                    <span class="block-table-cell">
-                      <span class="banner__title size40"><%= t("homeContent.str12") %></span>
-                      <span class="btn btn--ys btn--xl"><%= t("homeContent.str4") %></span>
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </a>
-          </div>
-          <div class="clearfix visible-sm"></div>
-          <div class="col-sm-6 col-md-6 col-lg-4">
-            <a href="/collections/women-s" class="banner zoom-in">
-              <span class="figure buttononhover">
-                <img src="//cdn.shopify.com/s/files/1/1637/5229/files/img03_1024x1024.jpg?v=1481309788" alt="">
-                <span class="figcaption">
-                  <span class="block-table">
-                    <span class="block-table-cell">
-                      <span class="banner__title size40"><%= t("homeContent.str13") %></span>
-                      <span class="btn btn--ys btn--xl"><%= t("homeContent.str4") %></span>
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </a>
-          </div>
-          <div class="clearfix hidden-xs hidden-sm"></div>
-          <div class="col-sm-6 col-md-6 col-lg-4">
-            <a href="/collections/women-s" class="banner zoom-in">
-              <span class="figure buttononhover">
-                <img src="//cdn.shopify.com/s/files/1/1637/5229/files/img04_1024x1024.jpg?v=1481309804" alt="">
-                <span class="figcaption">
-                  <span class="block-table">
-                    <span class="block-table-cell">
-                      <span class="banner__title size40"><%= t("homeContent.str14") %></span>
-                      <span class="btn btn--ys btn--xl"><%= t("homeContent.str4") %></span>
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </a>
-          </div>
-          <div class="clearfix visible-sm"></div>
-          <div class="col-sm-6 col-md-6 col-lg-4">
-            <a href="/collections/women-s" class="banner zoom-in">
-              <span class="figure buttononhover">
-                <img src="//cdn.shopify.com/s/files/1/1637/5229/files/img05_1024x1024.jpg?v=1481309827" alt="">
-                <span class="figcaption">
-                  <span class="block-table">
-                    <span class="block-table-cell">
-                      <span class="banner__title size40"><%= t("homeContent.str15") %></span>
-                      <span class="btn btn--ys btn--xl"><%= t("homeContent.str4") %></span>
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </a>
-          </div>
-          <div class="col-sm-6 col-md-6 col-lg-4">
-            <a href="/collections/women-s" class="banner zoom-in">
-              <span class="figure buttononhover">
-                <img src="//cdn.shopify.com/s/files/1/1637/5229/files/img06_1024x1024.jpg?v=1481309841" alt="">
-                <span class="figcaption">
-                  <span class="block-table">
-                    <span class="block-table-cell">
-                      <span class="banner__title size40"><%= t("homeContent.str16") %></span>
-                      <span class="btn btn--ys btn--xl"><%= t("homeContent.str4") %></span>
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </a>
-          </div>
-          <div class="clearfix visible-sm"></div>
-          <div class="clearfix hidden-xs hidden-sm"></div>
+          <% end %>
         </div>
       </div>
     </section>
   </div>
-    <div id="shopify-section-1480804649554" class="shopify-section index-section">
+  <div id="shopify-section-1480804649554" class="shopify-section index-section">
     <!-- featured products -->
     <section class="content" data-section-id="1480804649554" data-section-type="featuredproducts-section">
       <div class="container">
@@ -206,7 +128,7 @@
                     <!-- /product description -->
                     <!-- product price -->
                     <div class="product__inside__price price-box baseprice">
-                      <span class=money><%= product.price_out %></span>
+                      <span class=money><%= product.price_in %></span>
                     </div>
                     <!-- /product price -->
                     <!-- product review -->
@@ -220,10 +142,17 @@
                     <div class="product__inside__hover">
                       <!-- product info -->
                       <div class="product__inside__info">
-                        <div class="product__inside__info__btns"> <a href="javascript:void(0);" onclick="Shopify.addItem(31530898636, 1); return false;"
-                          class="btn btn--ys btn--xl addtocart-js"><span class="icon icon-shopping_basket"></span> Add to Cart</a>
+                        <div class="product__inside__info__btns">
+                          <% if logged_in? %>
+                          <a href="<%= carts_path(quanitily: 1, product_id: product.id, user_id: current_user.id ) %>" class="btn btn--ys btn--xl addtocart-js" data-method="post">
+                            <span class="icon icon-shopping_basket">
+                            </span>
+                          </a>
+                          <% end %>
                           <a href="javascript:void(0);" onclick="quiqview('black-cap')"
-                          class="btn btn--ys btn--xl  row-mode-visible hidden-xs"><span class="icon icon-visibility"></span> Quick View</a>
+                          class="btn btn--ys btn--xl  row-mode-visible hidden-xs">
+                            <span class="icon icon-visibility"></span> Quick View
+                          </a>
                         </div>
                         <div class="custom__info__link hidden-xs"></div>
                       </div>
@@ -241,5 +170,6 @@
     </section>
     <!-- end featured products -->
   </div>
+
   <!-- END content_for_index -->
 </div>

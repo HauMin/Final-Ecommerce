@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_cart, :set_category
   def show
   end
 
@@ -22,5 +23,15 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :email, :phone, :address,
        :password, :password_confirmation)
+    end
+
+    def set_cart
+      if logged_in?
+        @carts = Cart.where(user_id: current_user.id)
+      end
+    end
+
+    def set_category
+      @categories = Category.all.limit(3)
     end
 end

@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, :set_smallcategory, only: [:show]
+  before_action :set_cart, :set_category, :set_product, :set_smallcategory, only: [:show]
   skip_before_action only: [:show]
 
   def show
@@ -11,6 +11,17 @@ class ProductsController < ApplicationController
     end
 
     def set_smallcategory
-      @small_category = SmallCategory.all.limit(9)
+      id_small = Product.find(params[:id]).small_category_id
+      @small_category = SmallCategory.find(id_small)
+    end
+
+    def set_cart
+      if logged_in?
+        @carts = Cart.where(user_id: current_user.id)
+      end
+    end
+
+    def set_category
+      @categories = Category.all.limit(3)
     end
 end

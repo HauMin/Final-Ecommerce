@@ -13,16 +13,17 @@
                   <li><%= link_to "Users", '#' %></li>
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                      <%= t("header-wrapper.str1") %> <b class="caret"></b>
+                      <%= t("header-wrapper.str1") %>
+                      <b class="caret"></b>
                     </a>
-                    <ul class="dropdown-menu">
-                      <li><%= link_to "Profile", current_user %></li>
-                      <li><%= link_to "Settings", '#' %></li>
+<!--                     <ul class="dropdown-menu">
+                      <li><%= link_to t("label.profile"), current_user %></li>
+                      <li><%= link_to t("label.settings"), "#" %></li>
                       <li class="divider"></li>
                       <li>
-                        <%= link_to "Log out", view_web_account_logout_path, method: :delete %>
+                        <%= link_to t("label.logout"), view_web_account_logout_path, method: :delete %>
                       </li>
-                    </ul>
+                    </ul> -->
                   </li>
                 <% else %>
                   <li>
@@ -37,38 +38,82 @@
               </ul>
             </div>
             <!-- shopping cart start -->
-            <div class="cart link-inline header-cart mobile-menu-off">
-              <div class="dropdown text-right">
-                <a class="dropdown-toggle"> <span class="icon icon-shopping_basket"></span> <span class="badge badge--cart bigcounter">1</span> </a>
-                <div class="dropdown-menu dropdown-menu--xs-full slide-from-top cart-group-1"
-                role="menu">
-                  <div class="container">
-                    <div class="cart__top"><%= t("header-wrapper.str8") %></div> <a href="#" class="icon icon-close cart__close"><span><%= t("header-wrapper.str5") %></span></a>
-                    <ul>
-                      <li class="cart__item">
-                        <div class="cart__item__image pull-left">
-                          <a href="/products/paul-smith-blazer?variant=31530899532"><img src="//cdn.shopify.com/s/files/1/1637/5229/products/LEATHER_FUR_CROSSBODY_BAG_4_small.jpg?v=1481124090" alt="" /> </a>
-                        </div>
-                        <div class="cart__item__control">
-                          <div class="cart__item__delete"><a href="javascript:void(0);" onclick="Shopify.removeItem(31530899532)" class="icon icon-delete"><span><%= t("header-wrapper.str9") %></span></a> </div>
-                          <div class="cart__item__edit"><a href="/products/paul-smith-blazer?variant=31530899532" class="icon icon-edit"><span><%= t("header-wrapper.str10") %></span></a> </div>
-                        </div>
-                        <div class="cart__item__info">
-                          <div class="cart__item__info__title">
-                            <h2 class="title-center"><a href="/products/paul-smith-blazer?variant=31530899532">D-Kallien Boots - S / green</a></h2> </div>
-                          <div class="cart__item__info__price"><span class="info-label"><%= t("header-wrapper.str12") %></span><span><span class=money>$85.00</span></span>
+            <% if logged_in? %>
+              <div class="cart link-inline header-cart mobile-menu-off">
+                <div class="dropdown text-right">
+                  <a class="dropdown-toggle">
+                    <span class="icon icon-shopping_basket"></span>
+                    <span class="badge badge--cart bigcounter">
+                      <% sosp = 0  %>
+                      <% @carts.each do |cart| %>
+                        <% sosp = sosp + cart.quanitily %>
+                      <% end %>
+                      <%= sosp %>
+                    </span>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu--xs-full slide-from-top cart-group-1"
+                  role="menu">
+                    <div class="container">
+                      <div class="cart__top"><%= t("header-wrapper.str8") %>
+                      </div>
+                      <a href="#" class="icon icon-close cart__close">
+                        <span><%= t("header-wrapper.str5") %></span>
+                      </a>
+                      <ul>
+                        <% tong = 0  %>
+                        <% @carts.each do |cart| %>
+                        <% price = Product.find(cart.product_id).price_in %>
+                        <% quantity = cart.quanitily %>
+                        <% @tongsanpham = price * quantity %>
+                        <li class="cart__item">
+                          <div class="cart__item__image pull-left">
+                            <a href=/products/<%= Product.find(cart.product_id).id %>>
+                              <%= image_tag(Product.find(cart.product_id).image, :alt => "") %>
+                            </a>
                           </div>
-                          <div class="cart__item__info__price" style="right: 35%;"><span class="info-label"><%= t("header-wrapper.str11") %></span><span>1</span> </div>
-                        </div>
-                      </li>
-                    </ul>
-                    <div class="cart__bottom"> <a href="/checkout" class="btn btn--ys btn-checkout"><%= t("header-wrapper.str13") %> <span class="icon icon--flippedX icon-reply"></span></a>
-                      <div class="cart__total"><%= t("header-wrapper.str14") %><span class="shopping-cart__total"> <span class=money>$85.00</span></span>
-                      </div> <a href="/view_web/cart" class="btn btn--ys"><span class="icon icon-shopping_basket"></span><%= t("header-wrapper.str15") %></a> </div>
+                          <div class="cart__item__control">
+                            <div class="cart__item__delete">
+                              <a class="icon icon-delete">
+                                <%= link_to t("header-wrapper.str9"), cart, method: :delete,
+                                  data: {confirm: t("sure")} %>
+                                <span></span>
+                              </a>
+                            </div>
+                          </div>
+                          <div class="cart__item__info">
+                            <div class="cart__item__info__title">
+                              <h2 class="title-center">
+                                <a href="/products/paul-smith-blazer?variant=31530899532">
+                                  <%= Product.find(cart.product_id).name %>
+                                </a>
+                              </h2>
+                            </div>
+                            <div class="cart__item__info__price">
+                              <span class="info-label"><%= t("header-wrapper.str12") %></span>
+                                <span>
+                                  <span class=money><%= Product.find(cart.product_id).price_in %>
+                                  </span>
+                                </span>
+                            </div>
+                            <div class="cart__item__info__price" style="right: 35%;"><span class="info-label"><%= t("header-wrapper.str11") %></span>
+                              <span><%= quantity = cart.quanitily %></span>
+                            </div>
+                          </div>
+                        </li>
+                        <% tong = tong + @tongsanpham  %>
+                        <% end %>
+                      </ul>
+                      <div class="cart__bottom"> <a href="/checkout" class="btn btn--ys btn-checkout"><%= t("header-wrapper.str13") %> <span class="icon icon--flippedX icon-reply"></span></a>
+                        <div class="cart__total"><%= t("header-wrapper.str14") %><span class="shopping-cart__total">
+                          <span class=money><%= tong %>
+                          </span>
+                        </span>
+                        </div> <a href="/carts" class="btn btn--ys"><span class="icon icon-shopping_basket"></span><%= t("header-wrapper.str15") %></a> </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            <% end %>
             <!-- shopping cart end -->
           </div>
         </div>
@@ -118,6 +163,23 @@
                     <a href="/view_web/collections" class="dropdown-toggle" data-toggle="dropdown">
                       <span class="act-underline"><%= t("header-wrapper.str17") %></span>
                     </a>
+                    <ul class="dropdown-menu megamenu" role="menu">
+                      <% @categories.each do |category| %>
+                      <li class="col-sm-3">
+                        <a href="/category/<%= category.id %>" class="megamenu__subtitle"> <span><%= category.name %></span>
+                        </a>
+                        <ul class="megamenu__submenu">
+                          <% SmallCategory.where(category_id: category.id).each do |smallcate| %>
+                          <li class="level2">
+                            <a href="/category/<%= category.id %>/<%= smallcate.id %>">
+                              <%= smallcate.small_category_name %>
+                            </a>
+                          </li>
+                          <% end %>
+                        </ul>
+                      </li>
+                      <% end %>
+                    </ul>
                   </li>
                   <li class="dropdown dropdown-mega-menu dropdown-two-col">
                     <a href="/view_web/about" class="dropdown-toggle" data-toggle="dropdown">
@@ -148,39 +210,6 @@
               </div>
               <!-- search end -->
               <!-- shopping cart start -->
-              <div class="cart link-inline header-cart">
-                <div class="dropdown text-right">
-                  <a class="dropdown-toggle"> <span class="icon icon-shopping_basket"></span> <span class="badge badge--cart bigcounter">1</span> </a>
-                  <div class="dropdown-menu dropdown-menu--xs-full slide-from-top cart-group-1"
-                  role="menu">
-                    <div class="container">
-                      <div class="cart__top"><%= t("header-wrapper.str8") %></div> <a href="#" class="icon icon-close cart__close"><span><%= t("header-wrapper.str5") %></span></a>
-                      <ul>
-                        <li class="cart__item">
-                          <div class="cart__item__image pull-left">
-                            <a href="/products/paul-smith-blazer?variant=31530899532"><img src="//cdn.shopify.com/s/files/1/1637/5229/products/LEATHER_FUR_CROSSBODY_BAG_4_small.jpg?v=1481124090" alt="" /> </a>
-                          </div>
-                          <div class="cart__item__control">
-                            <div class="cart__item__delete"><a href="javascript:void(0);" onclick="Shopify.removeItem(31530899532)" class="icon icon-delete"><span><%= t("header-wrapper.str9") %></span></a> </div>
-                            <div
-                            class="cart__item__edit"><a href="/products/paul-smith-blazer?variant=31530899532" class="icon icon-edit"><span><%= t("header-wrapper.str10") %></span></a>
-                          </div>
-                    </div>
-                    <div class="cart__item__info">
-                      <div class="cart__item__info__title">
-                        <h2 class="title-center"><a href="/products/paul-smith-blazer?variant=31530899532">D-Kallien Boots - S / green</a></h2> </div>
-                      <div class="cart__item__info__price"><span class="info-label"><%= t("header-wrapper.str12") %></span><span><span class=money>$85.00</span></span>
-                      </div>
-                      <div class="cart__item__info__price" style="right: 35%;"><span class="info-label"><%= t("header-wrapper.str11") %></span><span>1</span> </div>
-                    </div>
-                    </li>
-                    </ul>
-                    <div class="cart__bottom"> <a href="/checkout" class="btn btn--ys btn-checkout"><%= t("header-wrapper.str13") %> <span class="icon icon--flippedX icon-reply"></span></a>
-                      <div class="cart__total"><%= t("header-wrapper.str14") %><span class="shopping-cart__total"> <span class=money>$85.00</span></span>
-                      </div> <a href="/cart" class="btn btn--ys"><span class="icon icon-shopping_basket"></span><%= t("header-wrapper.str15") %></a> </div>
-                  </div>
-                </div>
-              </div>
             </div>
             <!-- shopping cart end -->
           </div>

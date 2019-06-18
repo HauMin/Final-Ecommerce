@@ -1,4 +1,5 @@
 class ViewWebController < ApplicationController
+  before_action :set_cart, :set_category
   def home
     @products = Product.joins("INNER JOIN ranks ON product_id = products.id").limit(12).order("star_level desc")
   end
@@ -23,4 +24,15 @@ class ViewWebController < ApplicationController
 
   def cart
   end
+
+  private
+    def set_cart
+      if logged_in?
+        @carts = Cart.where(user_id: current_user.id)
+      end
+    end
+
+    def set_category
+      @categories = Category.all.limit(3)
+    end
 end

@@ -5,6 +5,8 @@ class User < ApplicationRecord
   has_many :contacts
   has_many :ranks
   has_many :recentlies
+  has_many :carts
+  has_many :products, through: :carts
   has_many :comments
   has_one :history
   has_many :products, through: :recentlies
