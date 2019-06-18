@@ -20,8 +20,19 @@
 
     </div>
   </section>
+  <div id="pageContent" class="starthide">
 
-  <%= render "users/formNew" %>
+    <div class="container">
+      <!-- title -->
+      <div class="title-box">
+        <h1 class="text-center text-uppercase title-under"><%= t("registerContent.str1") %></h1>
+      </div>
+      <!-- /title -->
+      <div class="row">
+        <%= render "users/formNew" %>
+      </div>
+    </div>
+  </div>
 
 
   <%= render "view_web/elements/footer" %>
