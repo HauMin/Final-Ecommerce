@@ -11,6 +11,13 @@
                 </div>
                 <div class="product-main-image__zoom"></div>
               </div>
+              <div id="demoform">
+                <% if current_user.viewed? @product %>
+                  <%= render "shared/demoform" %>
+                <% else %>
+                  <%= render "shared/demoform" %>
+                <% end %>
+              </div>
             </div>
             <div class="product-info col-sm-6 col-md-6 col-lg-6 col-xl-6">
               <div class="product-info__title">

@@ -26,4 +26,12 @@ module SessionsHelper
       current_user.ranks.build
     end
   end
+
+  def current_recently
+    if current_user.viewed? @product
+      current_user.recentlies.find_by product_id: @product.id
+    else
+      current_user.recentlies.build
+    end
+  end
 end

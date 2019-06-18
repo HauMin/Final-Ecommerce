@@ -4,8 +4,10 @@ class User < ApplicationRecord
 
   has_many :contacts
   has_many :ranks
+  has_many :recentlies
   has_many :comments
   has_one :history
+  has_many :products, through: :recentlies
   has_many :orders
   has_many :products, through: :ranks
   enum role: { admin: 0, member: 1 }
@@ -34,6 +36,10 @@ class User < ApplicationRecord
   end
 
   def rated? product
+    products.include? product
+  end
+
+  def viewed? product
     products.include? product
   end
 end

@@ -14,7 +14,10 @@ Rails.application.routes.draw do
   get "view_web/account/login", to: "sessions#new"
   post "view_web/account/login",  to: "sessions#create"
   delete "view_web/account/logout",  to: "sessions#destroy"
+  # get "products/:id", to: "recentlies#create"
   resources :users
   resources :products
+  resources :recentlies, only: :create
   resources :ranks, only: :create
+
 end
