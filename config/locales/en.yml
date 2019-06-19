@@ -277,6 +277,7 @@ en:
     msg2: "can't be empty"
   chat:
     str1: "Your feedback"
+<<<<<<< 3dd14a705197a9f526fbf9fe48021dd2a10e3ac8
   categories:
     index:
       title: "Home Admin"
@@ -394,6 +395,17 @@ en:
       id: "ID"
       image: "Image"
       nameproduct: "Name Product"
+=======
+  orders:
+    index:
+      title: "Home Admin"
+      str1: "Order manager"
+      id: "ID"
+      date_order: "Date Order"
+      address: "Address"
+      note: "Note"
+      status: "Status"
+>>>>>>> Admin Order
       action: "Action"
       new: "New"
     new:
@@ -415,6 +427,7 @@ en:
       list: "List"
     form:
       submit: "Submit"
+<<<<<<< 3dd14a705197a9f526fbf9fe48021dd2a10e3ac8
       nameproduct: "Name Products"
       description_sort: "Description Sort"
       description_long: "Description Long"
@@ -427,4 +440,7 @@ en:
       status: "Status"
       small_category: "Small Category"
       namesmallcategory: "Name Small Category"
-
+      date_order: "Date Order"
+      address: "Address"
+      note: "Note"
+      status: "Status"
