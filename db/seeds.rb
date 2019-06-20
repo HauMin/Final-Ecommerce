@@ -48,3 +48,6 @@ users = User.create(name: "Ngo Minh Hau", phone: "0123456789", email: "haumin120
 
 users = User.create(name: "Pham Den", phone: "0123456789", email: "denpham1201@gmail.com", 
 	address: "Da Nang", password: "123123", role: 0)
+
+orders = Order.create(date_order: "", address: "abc", note:"abc", status: 0, user_id: 1) 
+orders = Order.create(date_order: "", address: "123", note:"123", status: 1, user_id: 2) 
