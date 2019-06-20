@@ -7,43 +7,56 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 # categories = Category.create(name: "categories1",description: "sjdgfsjd")
 # users = User.create(name: "Duc Vinh",
+
 #   password: "123123",
 #   phone: "0787073046",
 #   email: "ducvinhnguyen2609@gmail.com",
 #   address: "Da Nang")
 
-# categories = Category.create(name: "TOPS",description: "tops")
-# categories = Category.create(name: "BOTTOMS",description: "bottoms")
-# categories = Category.create(name: "ACCESSORIES",description: "accessories")
-# small_categories = SmallCategory.create(small_category_name: "Blouses Shirts",
-#   description: "Blouses Shirts", category_id: 1)
-# small_categories = SmallCategory.create(small_category_name: "Dresses",
-#   description: "Dresses", category_id: 1)
-# small_categories = SmallCategory.create(small_category_name: "Tops & T shirts",
-#   description: "Tops & T shirts", category_id: 1)
-# small_categories = SmallCategory.create(small_category_name: "Trousers",
-#   description: "Trousers", category_id: 2)
-# small_categories = SmallCategory.create(small_category_name: "Jeans",
-#   description: "Jeans", category_id: 2)
-# small_categories = SmallCategory.create(small_category_name: "Leggings",
-#   description: "Leggings", category_id: 2)
-# small_categories = SmallCategory.create(small_category_name: "Jewellery",
-#   description: "Jewellery", category_id: 3)
-# small_categories = SmallCategory.create(small_category_name: "Hats",
-#   description: "Hats", category_id: 3)
-# small_categories = SmallCategory.create(small_category_name: "Scarves & snoods",
-#   description: "Scarves & snoods", category_id: 3)
+#   username: "DucVinh2609",
+#   password: "123123",
+#   phone: "0787073046",
+#   email: "ducvinhnguyen2609@gmail.com",
+#   address: "Da Nang",
+#   gender: 0)
+#   users = User.create(name: "Duc Vinh 123",
+#   email: "ducvinhnguyen2609@gmail.com",
+#   password: "123123")
 
-# products = Product.create(name: "BODY SHAPING LEGGINGS",
-#   description_sort: "Lorem ipsum dolor sit amet conse ctetur adipisicing elit",
-#   description_long: "Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex.",
-#   image: "Web/BODY_SHAPING_LEGGINGS_large.jpg",
-#   color: "white",
-#   size: "M",
-#   price_in: 300000,
-#   price_out: 400000,
-#   price_sale: 50000,
-#   small_category_id: 4 )
+# contacts = Contact.create(users_id: 1,message: "sydgasda")
+
+categories = Category.create(name: "TOPS",description: "tops")
+categories = Category.create(name: "BOTTOMS",description: "bottoms")
+categories = Category.create(name: "ACCESSORIES",description: "accessories")
+small_categories = SmallCategory.create(small_category_name: "Blouses Shirts",
+  description: "Blouses Shirts", category_id: 1)
+small_categories = SmallCategory.create(small_category_name: "Dresses",
+  description: "Dresses", category_id: 1)
+small_categories = SmallCategory.create(small_category_name: "Tops & T shirts",
+  description: "Tops & T shirts", category_id: 1)
+small_categories = SmallCategory.create(small_category_name: "Trousers",
+  description: "Trousers", category_id: 2)
+small_categories = SmallCategory.create(small_category_name: "Jeans",
+  description: "Jeans", category_id: 2)
+small_categories = SmallCategory.create(small_category_name: "Leggings",
+  description: "Leggings", category_id: 2)
+small_categories = SmallCategory.create(small_category_name: "Jewellery",
+  description: "Jewellery", category_id: 3)
+small_categories = SmallCategory.create(small_category_name: "Hats",
+  description: "Hats", category_id: 3)
+small_categories = SmallCategory.create(small_category_name: "Scarves & snoods",
+  description: "Scarves & snoods", category_id: 3)
+
+products = Product.create(name: "BODY SHAPING LEGGINGS",
+  description_sort: "Lorem ipsum dolor sit amet conse ctetur adipisicing elit",
+  description_long: "Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex.",
+  image: "",
+  color: "white",
+  size: "M",
+  price_in: 300000,
+  price_out: 400000,
+  price_sale: 50000,
+  small_category_id: 4 )
 # products = Product.create(name: "CHOKER PACK",
 #   description_sort: "Lorem ipsum dolor sit amet conse ctetur adipisicing elit",
 #   description_long: "Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex.",
@@ -84,16 +97,16 @@
 #   price_out: 339000,
 #   price_sale: 49000,
 #   small_category_id: 8 )
-products = Product.create(name: "JACQUARD LEGGINGS",
-  description_sort: "Lorem ipsum dolor sit amet conse ctetur adipisicing elit",
-  description_long: "Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex.",
-  image: "Web/JACQUARD_LEGGINGS_3_62417492-3e6a-40e2-b0dc-9a438e4e987c_large.jpg",
-  color: "blue",
-  size: "L",
-  price_in: 499000,
-  price_out: 699000,
-  price_sale: 50000,
-  small_category_id: 2 )
+# products = Product.create(name: "JACQUARD LEGGINGS",
+#   description_sort: "Lorem ipsum dolor sit amet conse ctetur adipisicing elit",
+#   description_long: "Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex.",
+#   image: "Web/JACQUARD_LEGGINGS_3_62417492-3e6a-40e2-b0dc-9a438e4e987c_large.jpg",
+#   color: "blue",
+#   size: "L",
+#   price_in: 499000,
+#   price_out: 699000,
+#   price_sale: 50000,
+#   small_category_id: 2 )
 # products = Product.create(name: "JACQUARD LEGGINGS large",
 #   description_sort: "Lorem ipsum dolor sit amet conse ctetur adipisicing elit",
 #   description_long: "Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex.",
@@ -169,3 +182,32 @@ products = Product.create(name: "JACQUARD LEGGINGS",
 #   user_id: 1,
 #   product_id: 1 )
 
+
+
+# categories = Category.create(name: "Ao", description: "ao mat")
+# categories = Category.create(name: "quan", description: "quan mat")
+
+# small_categories = SmallCategory.create(small_category_name: "Ao lot", description: "de mat", category_id: 1)
+# small_categories = SmallCategory.create(small_category_name: "quan lot", description: "de mat", category_id: 2)
+
+# products = Product.create(name: "sony", description_sort: "a", description_long: "b", image: "links",
+# 	color: "c", size: "3x4", price_in: 15, price_out: 20, price_sale: 3, status: 0, small_category_id: 1)
+# products = Product.create(name: "apple", description_sort: "g", description_long: "h", image: "links",
+# 	color: "j", size: "3x4", price_in: 20, price_out: 25, price_sale: 0, status: 1, small_category_id: 2)
+#products = Product.create(name: "sony", description_sort: "a", description_long: "b", image: "",
+#	color: "c", size: "3x4", price_in: 15, price_out: 20, price_sale: 3, status: 0, small_category_id: 1)
+#products = Product.create(name: "apple", description_sort: "g", description_long: "h", image: "",
+#	color: "j", size: "3x4", price_in: 20, price_out: 25, price_sale: 0, status: 1, small_category_id: 2)
+#image_products = ImageProduct.create(image: "", product_id: 1)
+
+# small_categories = SmallCategory.create(small_category_name: "Blouses Shirts",
+#   description: "Blouses Shirts")
+
+users = User.create(name: "Ngo Minh Hau", phone: "0123456789", email: "haumin1201@gmail.com", 
+	address: "Da Nang", password: "123123", role: 1)
+
+users = User.create(name: "Pham Den", phone: "0123456789", email: "denpham1201@gmail.com", 
+	address: "Da Nang", password: "123123", role: 0)
+
+# orders = Order.create(date_order: "", address: "abc", note:"abc", status: 0, user_id: 1) 
+# orders = Order.create(date_order: "", address: "123", note:"123", status: 1, user_id: 2) 

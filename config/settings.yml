@@ -5,6 +5,8 @@ user:
   pass_length: 6
   phone_number_length: 11
 
+
 rating:
   motsao: 1
   namsao: 5
+

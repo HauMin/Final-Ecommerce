@@ -47,32 +47,12 @@ ActiveRecord::Schema.define(version: 2019_06_18_012026) do
     t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 
-  create_table "histories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_histories_on_user_id"
-  end
-
   create_table "image_products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image"
     t.bigint "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_image_products_on_product_id"
-  end
-
-  create_table "order_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "quanitily"
-    t.float "price"
-    t.bigint "order_id"
-    t.bigint "product_id"
-    t.bigint "history_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["history_id"], name: "index_order_details_on_history_id"
-    t.index ["order_id"], name: "index_order_details_on_order_id"
-    t.index ["product_id"], name: "index_order_details_on_product_id"
   end
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -144,7 +124,7 @@ ActiveRecord::Schema.define(version: 2019_06_18_012026) do
     t.string "address"
     t.string "password_digest"
     t.string "remember_digest"
-    t.integer "role", default: 0, null: false
+    t.integer "role", default: 1, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -155,11 +135,7 @@ ActiveRecord::Schema.define(version: 2019_06_18_012026) do
   add_foreign_key "comments", "products"
   add_foreign_key "comments", "users"
   add_foreign_key "contacts", "users"
-  add_foreign_key "histories", "users"
   add_foreign_key "image_products", "products"
-  add_foreign_key "order_details", "histories"
-  add_foreign_key "order_details", "orders"
-  add_foreign_key "order_details", "products"
   add_foreign_key "products", "small_categories"
   add_foreign_key "ranks", "products"
   add_foreign_key "ranks", "users"

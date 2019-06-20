@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :products, through: :recentlies
   has_many :orders
   has_many :products, through: :ranks
+
   enum role: { admin: 0, member: 1 }
 
   has_secure_password

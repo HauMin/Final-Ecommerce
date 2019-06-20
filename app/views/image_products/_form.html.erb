@@ -1,0 +1,50 @@
+<%= form_for @image_product do |f| %>
+  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+  <div class="box-body">
+  	<div class="fields-group">
+
+      <div class="form-group  ">
+        <%= f.label :image, t(".image") %>
+        <%= f.file_field :image, class: "form-control" %>
+      </div>
+      <% if @image_product.image? %>
+        <%= image_tag @image_product.image.thumb.url %>
+      <% end %>
+
+      <div class="form-group  ">
+        <%= f.label :product_id, t(".nameproduct") %>
+        <select id="category" onchange="categoryChanged(this)">
+          <% if @image_product.product_id? %>
+            <option value=  <%= @image_product.product_id %> ><%= @image_product.product.name %></option>
+              <% @products.each do |product| %>
+            <% if product.id != @image_product.product_id %>
+            <option value=<%= product.id %> ><%= product.name %></option>
+            <%end%>
+          <%end%>          
+
+          <% else %>
+            <option value="" >--Products--</option>
+          <% @products.each do |product| %>
+          <option value=<%= product.id %> ><%= product.name %></option>
+          <%end%>
+          <%end%>
+        </select>
+        <%= f.hidden_field :product_id, id: :image_product_product_id %>
+      </div>
+    </div>
+  </div>
+  <!-- /.box-body -->
+  <div class="box-footer">
+    <input type="hidden" name="_token" value="YkDCfkRWPRyZTW2zQVo3IfKy3x6paUJmuFe7BBwx">
+    <div class="col-md-2"> </div>
+    <div class="col-md-8">
+      <div class="btn-group pull-right">
+        <%= f.submit t(".submit"), class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+  <input type="hidden" name="_previous_" value="" class="_previous_" />
+  <!-- /.box-footer -->
+<% end %>
+
+<%= javascript_include_tag "image_product" %>

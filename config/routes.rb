@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  get 'orders/show'
-  get 'orders/create'
+  get "sessions/new"
+  get "users/new"
+
   root "view_web#home"
 
   get "/admin", to: "view_admin#home"
@@ -16,11 +17,17 @@ Rails.application.routes.draw do
   get "view_web/account/login", to: "sessions#new"
   post "view_web/account/login",  to: "sessions#create"
   delete "view_web/account/logout",  to: "sessions#destroy"
-  # get "products/:id", to: "recentlies#create"
+
   resources :users
   resources :products
   resources :recentlies, only: :create
   resources :ranks, only: :create
   resources :carts
   resources :orders
+
+
+  resources :categories
+  resources :small_categories
+  resources :image_products
+
 end

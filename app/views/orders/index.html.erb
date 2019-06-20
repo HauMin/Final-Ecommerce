@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en" dir="ltr" class="no-js linux chrome desktop page--no-banner page--logo-main page--show page--show card-fields">
 
@@ -864,3 +865,71 @@
 </body>
 
 </html>
+=======
+<% provide(:title, t( ".title")) %>
+  <div class="wrapper">
+    <header class="main-header">
+      <a href="/test/public/" class="logo">
+        <span class="logo-mini"><b><%= t("adminHome.str1") %></b></span>
+        <span class="logo-lg">
+          <%= image_tag("Admin/img/scart-min.png", :alt => "img") %>
+        </span>
+      </a>
+      <nav class="navbar navbar-static-top" role="navigation">
+        <%=render "view_admin/elements/NavbarRightMenu" %>
+      </nav>
+    </header>
+    <%=render "view_admin/elements/menu" %>
+    <div class="content-wrapper" id="pjax-container">
+      <section class="content-header">
+        <h1><%= t ".str1" %></h1>
+        <!-- breadcrumb start -->
+        <!-- breadcrumb end -->
+      </section>
+      <section class="content">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="box">
+              
+              <!-- /.box-header -->
+              <div class="box-body table-responsive no-padding">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th><%= t ".id" %></th>
+                      <th><%= t ".date_order" %></th>
+                      <th><%= t ".address" %></th>
+                      <th><%= t ".note" %></th>
+                      <th><%= t ".status" %></th>
+                      <th><%= t ".action" %></th>
+                    </tr>
+                  </thead>
+                  <tbody> 
+                    <% @orders.each do |order| %>
+                      <tr>
+                        <td><%= order.id %></td>
+                        <td><%= order.date_order %></td>
+                        <td><%= order.address %></td>
+                        <td><%= order.note %></td>                      
+                        <td><%= order.status %></td>                  
+                        <td>
+                          <a title="Show Customer detail" href= <%= edit_order_path(order) %> > 
+                            <i class="fa fa-edit"></i> 
+                          </a>
+                          <a href= <%= order_path(order)%> data-method = "delete" data-confirm = "Bạn có chắc chắn xóa?" >  
+                            <i class="fa fa-trash"> </i>                           
+                          </a>
+                        </td>
+                      </tr> 
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.box-body -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+>>>>>>> master
