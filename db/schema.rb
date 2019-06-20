@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2019_06_12_032431) do
-
+ 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -161,4 +161,5 @@ ActiveRecord::Schema.define(version: 2019_06_12_032431) do
   add_foreign_key "ranks", "products"
   add_foreign_key "ranks", "users"
   add_foreign_key "small_categories", "categories"
+
 end
