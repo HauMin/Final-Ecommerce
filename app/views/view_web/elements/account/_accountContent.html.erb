@@ -1,0 +1,41 @@
+
+<div id="pageContent" class="starthide">
+  <div class="container">
+    <!-- title -->
+    <div class="title-box">
+      <h1 class="text-center text-uppercase title-under"><%= t".account" %></h1>
+    </div>
+    <!-- /title -->
+    <h4 class="text-uppercase"><%= t ".myaccount" %></h4>
+    <hr>
+    <h4 class="text-uppercase"><%= t ".orderhistory" %></h4>
+
+    <p><%= t ".str1" %>&#39;<%= t ".str2" %></p>
+    <hr>
+    <h4 class="text-uppercase"><%= t ".accountdetail" %></h4>
+    <div class="row">
+      <div class="col-xs-12 col-sm-7 col-md-5">
+        <table class="table table-params">
+          <tbody>
+            <tr>
+              <td class="text-right"><%= t ".name" %><b></b>
+              </td>
+              <td><%= @user.name %></td>
+            </tr>
+            <tr>
+              <td class="text-right"><%= t ".email" %><b></b>
+              </td>
+              <td><%= @user.email %></td>
+            </tr>
+            <tr>
+              <td class="text-right"><%= t ".address" %><b></b>
+              </td>
+              <td><%= @user.address %></td>
+            </tr>
+          </tbody>
+        </table>
+        
+      </div>
+    </div>
+  </div>
+</div>
