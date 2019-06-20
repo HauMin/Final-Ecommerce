@@ -20,3 +20,5 @@ Rails.application.config.assets.precompile += %w(small_category.js common/*.js)
 Rails.application.config.assets.precompile += %w(new.js common/*.js)
 Rails.application.config.assets.precompile += %w(edit.js common/*.js)
 
+Rails.application.config.assets.precompile += %w(image_product.js common/*.js)
+

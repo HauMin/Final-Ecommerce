@@ -13,6 +13,8 @@ en:
   small_category_deleted: "Small Category Deleted"
   product_not_found: "Product Not Found"
   product_category_deleted: "Product Deleted"
+  image_product_not_found: "Image Product Not Found"
+  image_product_deleted: "Image Deleted"
   view_admin:
     home:
       title: "Home Admin"
@@ -210,7 +212,8 @@ en:
     str9: "Manage Users"
     str10: "Setting"
     str11: "Logout"
-    str12: "Manage Small Category "
+    str12: "Manage Small Category"
+    str13: "Manage Image Products"
   adminHome:
     str1: "FAshop"
     str2: "Dashboard"
@@ -334,4 +337,44 @@ en:
       small_category: "Small Category"
       namesmallcategory: "Name Small Category"
       romove_image: "Remove image"
+  image_products:
+    index:
+      title: "Home Admin"
+      str1: "Image Products manager"
+      id: "ID"
+      image: "Image"
+      nameproduct: "Name Product"
+      action: "Action"
+      new: "New"
+    new:
+      title: "Home Admin"
+      str1: "Add Product"
+      str2: "Create Product"
+      id: "ID"
+      namecategory: "Name Category"
+      description: "Description"
+      list: "List"
+      namecategory: "Name Category"
+    edit:
+      title: "Home Admin"
+      str1: "Edit Category"
+      str2: "Edit Category"
+      id: "ID"
+      namecategory: "Name Category"
+      description: "Description"
+      list: "List"
+    form:
+      submit: "Submit"
+      nameproduct: "Name Products"
+      description_sort: "Description Sort"
+      description_long: "Description Long"
+      image: "Image"
+      color: "Color"
+      size: "Size"
+      price_in: "Price In"
+      price_out: "Price Out"
+      price_sale: "Price Sale"
+      status: "Status"
+      small_category: "Small Category"
+      namesmallcategory: "Name Small Category"
 

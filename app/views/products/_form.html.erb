@@ -1,15 +1,15 @@
 <%= form_for @product do |f| %>
   <input type="hidden" name="_token" value="{{ csrf_token() }}">
   <div class="box-body">
-  	<div class="fields-group">
-    	<div class="form-group  ">
-    		<%= f.label :name, t(".nameproduct") %>
-    		<%= f.text_field :name, class: "form-control" %>
-    	</div>
-    	<div class="form-group  ">
-    		<%= f.label :description_sort, t(".description_sort") %>
-		    <%= f.text_field :description_sort, class: "form-control" %>
-		  </div>
+    <div class="fields-group">
+      <div class="form-group  ">
+        <%= f.label :name, t(".nameproduct") %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+      <div class="form-group  ">
+        <%= f.label :description_sort, t(".description_sort") %>
+        <%= f.text_field :description_sort, class: "form-control" %>
+      </div>
 
       <div class="form-group  ">
         <%= f.label :description_long, t(".description_long") %>
@@ -21,13 +21,7 @@
         <%= f.file_field :image, class: "form-control" %>
       </div>
       <% if @product.image? %>
-      <%= image_tag @product.image.thumb.url %>
-      <div>
-        <%= label_tag :remove_image do %>
-          <%= t ".romove_image" %>
-          <%= f.check_box :remove_image %>
-        <% end %>
-      </div>
+        <%= image_tag @product.image.thumb.url %>
       <% end %>
 
 
