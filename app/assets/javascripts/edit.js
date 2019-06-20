@@ -1,4 +1,7 @@
+<<<<<<< 465d1b17d2d5b393adadad7aa7d8983650ef848c
 
+=======
+>>>>>>> Admin User
 $(function() {
   $(".parent").select2({
     "allowClear": true,

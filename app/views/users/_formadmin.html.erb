@@ -1,0 +1,51 @@
+<%= form_for @user do |f| %>
+  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+  <div class="box-body">
+  	<div class="fields-group">
+    	<div class="form-group  ">
+    		<%= f.label :name, t(".name") %>
+    		<%= f.text_field :name, class: "form-control" %>
+    	</div>
+    	<div class="form-group  ">
+    		<%= f.label :phone, t(".phone") %>
+		    <%= f.text_field :phone, class: "form-control" %>
+		  </div>
+
+      <div class="form-group  ">
+        <%= f.label :email, t(".email") %>
+        <%= f.text_field :email, disabled: :disabled, class: "form-control" %>
+      </div>
+
+      <div class="form-group  ">
+        <%= f.label :address, t(".address") %>
+        <%= f.text_field :address, class: "form-control" %>
+      </div>
+
+      <div class="form-group  ">
+        <%= f.label :role, t(".admin") %>
+        <%= f.select :role, options_for_select(User.roles.map { |key, value| [key.humanize, key] }) %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password, t("registerContent.str5") %>
+        <%= f.password_field :password, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password_confirmation, t("registerContent.str6") %>
+        <%= f.password_field :password_confirmation, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+  <!-- /.box-body -->
+  <div class="box-footer">
+    <input type="hidden" name="_token" value="YkDCfkRWPRyZTW2zQVo3IfKy3x6paUJmuFe7BBwx">
+    <div class="col-md-2"> </div>
+    <div class="col-md-8">
+      <div class="btn-group pull-right">
+        <%= f.submit t(".submit"), class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+  <input type="hidden" name="_previous_" value="" class="_previous_" />
+  <!-- /.box-footer -->
+<% end %>

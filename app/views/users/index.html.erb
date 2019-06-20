@@ -1,0 +1,71 @@
+<% provide(:title, t( ".title")) %>
+  <div class="wrapper">
+    <header class="main-header">
+      <a href="/test/public/" class="logo">
+        <span class="logo-mini"><b><%= t("adminHome.str1") %></b></span>
+        <span class="logo-lg">
+          <%= image_tag("Admin/img/scart-min.png", :alt => "img") %>
+        </span>
+      </a>
+      <nav class="navbar navbar-static-top" role="navigation">
+        <%=render "view_admin/elements/NavbarRightMenu" %>
+      </nav>
+    </header>
+    <%=render "view_admin/elements/menu" %>
+    <div class="content-wrapper" id="pjax-container">
+      <section class="content-header">
+        <h1><%= t ".str1"%></h1>
+        <!-- breadcrumb start -->
+        <!-- breadcrumb end -->
+      </section>
+      <section class="content">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="box">
+              <!-- /.box-header -->
+              <div class="box-body table-responsive no-padding">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th><%= t ".id" %></th>
+                      <th><%= t ".name" %></th>
+                      <th><%= t ".phone" %></th>
+                      <th><%= t ".email" %></th>
+                      <th><%= t ".address" %></th>
+                      <th><%= t ".admin" %></th>
+                      <th><%= t ".action" %></th>
+                    </tr>
+                  </thead>
+                  <tbody> 
+                    <% @users.each do |user| %>
+                      <tr>
+                        <td><%= user.id %></td>
+                        <td><%= user.name %></td>
+                        <td><%= user.phone %></td>
+                        <td><%= user.email %></td>
+                        <td><%= user.address %></td>
+                        <% if user.role == "admin" %>
+                          <td><%= user.role %></td>
+                        <%else%>
+                          <td></td>
+                        <%end%>
+                        <td>
+                          <a title="Show Customer detail" href= <%= edit_user_path(user) %> > 
+                            <i class="fa fa-edit"></i> 
+                          </a>
+                          <a href= <%= user_path(user)%> data-method = "delete" data-confirm = "Bạn có chắc chắn xóa?" >                       
+                            <i class="fa fa-trash"> </i>                           
+                          </a>
+                        </td>
+                      </tr> 
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.box-body -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>

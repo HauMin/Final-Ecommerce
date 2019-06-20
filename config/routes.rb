@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   delete "view_web/account/logout",  to: "sessions#destroy"
   resources :users
 
-
   resources :categories
   resources :small_categories
   resources :products
