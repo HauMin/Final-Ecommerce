@@ -5,7 +5,6 @@ en:
   account: "Content Page Account"
   product: "Content Page Product"
   welcome: Welcome to FAshop
-<<<<<<< ffd33c5a219f7956c89a367969c64643d31cd595
   category_not_found: "Category Not Found"
   category_deleted: "Category Deleted"
   cant_be_empty: "Can not be empty!"
@@ -16,8 +15,6 @@ en:
   product_category_deleted: "Product Deleted"
   image_product_not_found: "Image Product Not Found"
   image_product_deleted: "Image Deleted"
-=======
->>>>>>> Admin User
   user_not_found: "User Not Found"
   user_deleted: "User Deleted"
   view_admin:
@@ -77,9 +74,11 @@ en:
       str1: "Edit User"
       str2: "Edit User"
       id: "ID"
+      str3: "Update User"
       namecategory: "Name Category"
       description: "Description"
       list: "List"
+      title: "FAshop - Update"
     formadmin:
       submit: "Submit"
       name: "User Name"
@@ -243,7 +242,7 @@ en:
     str4: "Email"
     str5: "Password"
     str6: "Confirmation"
-    str7: "Create"
+    str7: "Submit"
     str8: "Return to Store"
     str9: "* Required Fields"
     str10: "Phone"

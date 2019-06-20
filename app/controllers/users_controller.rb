@@ -19,12 +19,17 @@ class UsersController < ApplicationController
   def update
     if @user.update_attributes(user_params)
       flash[:success] = t "updated"
-      redirect_to users_path
+      if (current_user.role == "admin")
+        redirect_to users_path
+        else
+        redirect_to current_user
+      end
     else
       render :edit
     end
   end
 
+    
 
   def create
     @user = User.new(user_params)

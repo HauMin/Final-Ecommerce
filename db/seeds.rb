@@ -22,8 +22,6 @@
 # categories = Category.create(name: "TOPS",description: "tops")
 # categories = Category.create(name: "BOTTOMS",description: "bottoms")
 # categories = Category.create(name: "ACCESSORIES",description: "accessories")
-<<<<<<< ffd33c5a219f7956c89a367969c64643d31cd595
-
 
 
 categories = Category.create(name: "Ao", description: "ao mat")
@@ -42,8 +40,6 @@ products = Product.create(name: "apple", description_sort: "g", description_long
 #	color: "j", size: "3x4", price_in: 20, price_out: 25, price_sale: 0, status: 1, small_category_id: 2)
 #image_products = ImageProduct.create(image: "", product_id: 1)
 
-=======
->>>>>>> Admin User
 # small_categories = SmallCategory.create(small_category_name: "Blouses Shirts",
 #   description: "Blouses Shirts")
 
